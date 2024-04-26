@@ -1,4 +1,4 @@
-import { flight } from "./flight";
+import { flight } from "./Flight";
 
 export class route {
     private flight: flight;

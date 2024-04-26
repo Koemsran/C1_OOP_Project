@@ -1,12 +1,12 @@
-import { flight } from "../aeroplane/flight";
-import { employee } from "./employee";
-import { Gender } from "./gender";
+import { flight } from "../aeroplane/Flight";
+import { employee } from "./Employee";
+import { Gender } from "./Gender";
 
 
 
 export class chef extends employee {
     private fights: flight[] = [];
-    constructor(salary: string, name: string, age: number, gender: Gender) {
+    constructor(salary: number, name: string, age: number, gender: Gender) {
         super(salary, name, age, gender);
     }
   

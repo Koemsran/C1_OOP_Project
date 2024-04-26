@@ -1,8 +1,8 @@
-import { flight } from "../aeroplane/flight";
-import { gate } from "../aeroplane/gate";
-import { meal } from "../food/meal";
-import { passenger } from "../persons/passenger";
-import { bookingTrip } from "./bookingTrip";
+import { flight } from "../aeroplane/Flight";
+import { gate } from "../aeroplane/Gate";
+import { meal } from "../food/Meal";
+import { passenger } from "../persons/Passenger";
+import { bookingTrip } from "./BookingTrip";
 
 
 export class bookingFlight {

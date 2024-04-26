@@ -1,12 +1,12 @@
-import { dateTime } from "../address/date";
-import { bookingFlight } from "../booking/bookingFlight";
-import { meal } from "../food/meal";
+import { dateTime } from "../address/Date";
+import { bookingFlight } from "../booking/BookingFlight";
+import { meal } from "../food/Meal";
+import { chef } from "../persons/Chef";
 import { coPilot } from "../persons/CoPilot";
-import { chef } from "../persons/chef";
-import { pilot } from "../persons/pilot";
-import { airport } from "./airport";
-import { gate } from "./gate";
-import { route } from "./route";
+import { pilot } from "../persons/Pilot";
+import { airport } from "./Airport";
+import { route } from "./Route";
+import { gate } from "./Gate";
 
 
 export class flight{
@@ -18,12 +18,8 @@ export class flight{
     private co_pilot: coPilot;
     private chef: chef;
     private meals: meal[] = [];
-    constructor(private number:string, private departureAirport:airport,
-    private arrivalAirport:airport, private departureTime:string, private arrivalTime:string){
-        this.number = number
-        this.departureAirport = departureAirport
-        this.arrivalAirport = arrivalAirport
-        this.departureTime = departureTime
-        this.arrivalTime  = arrivalTime
+    constructor(private flightNumber:string){
+        this.flightNumber = flightNumber
+        
     }
 }

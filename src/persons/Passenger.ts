@@ -1,11 +1,22 @@
-import { person } from "./person";
+import { person } from "./Person";
+import { Gender } from "./Gender";
+import { bagGage } from "../baggage/Baggage";
+import { booking } from "../booking/Booking";
+import { bookingFlight } from "../booking/BookingFlight";
+import { meal } from "../food/Meal";
+import { typeMeal } from "../food/Type";
 
 
 export class passenger extends person{
 
-    constructor(name: string, gender:string, age: number, private bookingReference:string, private seatNumber:string){
+    private bages: bagGage[] = [];
+    private booking: booking;
+    private bookingFlights: bookingFlight[] = [];
+
+
+    constructor(name: string, gender: Gender, age: number, private chooseMeal?: typeMeal, private frequentFlyerNumber?: string,) {
         super(name, gender, age);
-        this.bookingReference = bookingReference;
-        this.seatNumber = seatNumber;
+        this.chooseMeal = chooseMeal;
+        this.frequentFlyerNumber = frequentFlyerNumber;
     }
 }
