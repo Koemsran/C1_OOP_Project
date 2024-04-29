@@ -12,5 +12,19 @@ export class bookingFlight {
     private flight: flight;
     private gate: gate;
 
-
+    addMeal(meals: meal[]){
+        for(let meal of meals){
+            this.chooseMeal?.push(meal);
+        }
+    }
+    addPassenger(passengers: passenger[]){
+        for(let passenger of passengers){
+            this.passengers.push(passenger)
+        }
+    }
+    getMealsFromBookingFlight(): meal[] {
+        return this.chooseMeal;
+       
+    }
+    
 }

@@ -1,4 +1,4 @@
-import { passenger } from "../persons/passenger";
+import { passenger } from "../persons/Passenger";
 
 
 

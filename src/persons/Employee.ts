@@ -8,4 +8,8 @@ export class employee extends person{
         this.salary = salary;
 
     }
+
+    getSalary():number{
+        return this.salary;
+    }
 }

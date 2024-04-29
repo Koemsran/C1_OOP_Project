@@ -9,7 +9,7 @@ import { typeMeal } from "../food/Type";
 
 export class passenger extends person{
 
-    private bages: bagGage[] = [];
+    private bags: bagGage[] = [];
     private booking: booking;
     private bookingFlights: bookingFlight[] = [];
 
@@ -18,5 +18,24 @@ export class passenger extends person{
         super(name, gender, age);
         this.chooseMeal = chooseMeal;
         this.frequentFlyerNumber = frequentFlyerNumber;
+    }
+    setBooking(booking: booking){
+        this.booking = booking;
+    }
+    addBag(bags:bagGage[]){
+        for (let bag of bags){
+            this.bags.push(bag);
+        }
+    }
+    addBookingFlight(bookings: bookingFlight[]){
+        for(let booking of bookings){
+            this.bookingFlights.push(booking);
+        }
+    }
+    getBag(): bagGage[]{
+        return this.bags;
+    }
+    getBooking(){
+        return this.booking;
     }
 }

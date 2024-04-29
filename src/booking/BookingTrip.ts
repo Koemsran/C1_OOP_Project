@@ -1,15 +1,21 @@
-import { bagGage } from "../baggage/baggage";
-import { passenger } from "../persons/passenger";
-import { bookingFlight } from "./bookingFlight";
+import { bagGage } from "../baggage/Baggage";
+import { passenger } from "../persons/Passenger";
+import { bookingFlight } from "./BookingFlight";
 
-
-export enum returnTicket {
-    return = "reTurnTrip"
-}
 export class bookingTrip {
     private passengers: passenger[] = [];
     private bags: bagGage[] = [];
     private bookFlight: bookingFlight[] = [];
-    private returnTicket: returnTicket[] = [];
+    
+    addPassenger(passengers: passenger[]){
+        for(let passenger of passengers){
+            this.passengers.push(passenger);
+        }
+
+    }
+    addBookingFlight(booking: bookingFlight){
+        this.bookFlight.push(booking)
+    }
+    
 
 }

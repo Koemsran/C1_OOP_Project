@@ -1,6 +1,6 @@
 
-import { flight } from "../aeroplane/flight";
-import { passenger } from "../persons/passenger";
+import { flight } from "../aeroplane/Flight";
+import { passenger } from "../persons/Passenger";
 
 export class ticket{
     private passenger: passenger;
