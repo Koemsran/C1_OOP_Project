@@ -9,8 +9,8 @@ import { route } from "./Route";
 import { gate } from "./Gate";
 
 
-export class flight{
-    
+export class flight {
+
     private bookingFlight: bookingFlight[] = [];
     private route: route;
     private gates: gate[] = [];
@@ -19,39 +19,48 @@ export class flight{
     private co_pilot: coPilot;
     private chef: chef;
     private meals: meal[] = [];
-    constructor(private flightNumber:string){
+    constructor(private flightNumber: string) {
         this.flightNumber = flightNumber
-        
+
     }
-  
+
     addBookingFlight(bookingFlight: bookingFlight[]) {
-        for(let booking of bookingFlight){
+        for (let booking of bookingFlight) {
             this.bookingFlight.push(booking);
         }
     }
-    setRoute(route: route){
+    setRoute(route: route) {
         this.route = route;
     }
-    addGate(gate: gate){
-        this.gates.push(gate);
+    addGate(gates: gate[]) {
+        for (let gate of gates) {
+            this.gates.push(gate);
+
+        }
     }
-    setDate(date: dateTime){
+    setDate(date: dateTime) {
         this.dateTime = date;
     }
-    getDate(): dateTime{
+    getDate(): dateTime {
         return this.dateTime;
     }
     addMealFromBookingFlight() {
-        for( let booking of this.bookingFlight){
-            for(let meal of booking.getMealsFromBookingFlight()){
+        for (let booking of this.bookingFlight) {
+            for (let meal of booking.getMealsFromBookingFlight()) {
                 this.meals.push(meal)
             }
         }
 
     }
-    getMeals(): meal[]{
-       
+    getMeals(): meal[] {
+
         return this.meals;
-        
+
+    }
+    getFlightNumber() {
+        return this.flightNumber;
+    }
+    getGates(): gate[] {
+        return this.gates;
     }
 }

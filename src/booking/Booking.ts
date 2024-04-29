@@ -6,44 +6,40 @@ export class booking {
     private passengers: passenger[] = [];
     private flights: flight[] = [];
     private bookingTrips: bookingTrip[] = [];
-    constructor(private bookingReferenceNumber: string, private status:string ) {
+    constructor(private bookingReferenceNumber: string, private status: string) {
         this.bookingReferenceNumber = bookingReferenceNumber;
-   
     }
-    addPassenger(passenger: passenger){
+
+    addPassenger(passenger: passenger) {
         this.passengers.push(passenger);
     }
-    
-    addBookingTrip(trips: bookingTrip[]){
-        for (let trip of trips){
+    addBookingTrip(trips: bookingTrip[]) {
+        for (let trip of trips) {
             this.bookingTrips.push(trip)
         }
     }
-    addFlight(flight: flight){
+    addFlight(flight: flight) {
         this.flights.push(flight);
     }
-    getPassenger(referenceNumber:string){
-        for(let passenger of this.passengers){
-            if(passenger.getBooking().getBookingReferenceNumber() == referenceNumber){
+    getPassenger(referenceNumber: string) {
+        for (let passenger of this.passengers) {
+            if (passenger.getBooking().getBookingReferenceNumber() == referenceNumber) {
                 return passenger;
             }
-            else{
+            else {
                 return undefined;
             }
         }
-        
-        
+
     }
-    getBookingReferenceNumber(){
+    getBookingReferenceNumber() {
         return this.bookingReferenceNumber;
     }
-    getFlight(){
+    getFlight() {
         return this.flights;
     }
-    getStatuse(){
+    getStatuse() {
         return this.status;
     }
-   
-
 
 }

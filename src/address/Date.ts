@@ -1,9 +1,7 @@
 export class dateTime {
-    private Date: string
-    private Time: string
-    constructor(Date: string, Time: string) {
-        this.Date = Date
-        this.Time = Time
+    constructor(private date: string, private time: string) {
+        this.date = date
+        this.time = time
     }
    
 }

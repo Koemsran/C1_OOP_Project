@@ -8,4 +8,5 @@ export class areoplane{
         this.registerationNumber = registerationNumber;
         this.layout = layout;
     }
+    
 }

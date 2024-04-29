@@ -26,5 +26,13 @@ export class bookingFlight {
         return this.chooseMeal;
        
     }
+    setFlight(flight: flight) {
+        this.flight = flight;
+    }
+    
+    getGate() {
+        return this.gate;
+    }
+    
     
 }

@@ -18,6 +18,8 @@ import { seat } from "./seat/Seat";
 import { route } from "./aeroplane/Route";
 import { meal } from "./food/Meal";
 import { ticket } from "./booking/Ticket";
+import { boardingPass } from "./booking/Boarding";
+import { address } from "./address/Address";
 
 // Airline
 let airLine = new airline('PP Airline', "A21");
@@ -84,36 +86,24 @@ passenger1.addBag([bag1, bag3]);
 passenger2.addBag([bag2, bag3]);
 passenger3.addBag([bag1, bag2]);
 
-// Gate 
-let gate1 = new gate("A1");
-let gate2 = new gate("A2");
-let gate3 = new gate("A3");
-let gate4 = new gate("A4");
-let gate5 = new gate("A5");
-
-//Seat
-let seat1 = new seat("E1");
-let seat2 = new seat("E2");
-let seat3 = new seat("E3");
-let seat4 = new seat("E4");
-let seat5 = new seat("E5");
+// Adress 
+let PP = new address("Phnom Penh", "Cambodia");
+let SR = new address("Siem Reap", "Cambodia")
+let BK = new address("Bang Kork", "Tailand")
 
 //Route
-let route1 = new route("Phnom Penh", "Siem Reap");
-let route2 = new route("Siem Reap", "Phnom Penh");
-let route3 = new route("Phnom Penh", "Bang Kork");
+let route1 = new route(PP, SR);
+let route2 = new route(SR, PP);
+let route3 = new route(PP, BK);
 
 // Add to flight
 flight1.setRoute(route1);
-flight1.addGate(gate1);
 flight1.setDate(date1)
 
 flight2.setRoute(route1);
-flight2.addGate(gate1);
 flight2.setDate(date2)
 
 flight3.setRoute(route1);
-flight3.addGate(gate1);
 flight3.setDate(date1)
 
 // Add booking trip to booking 
@@ -167,3 +157,26 @@ let salaries = airLine.getAllSalaryEmployee();
 
 
 // =============> STORY 6: Passenger want to know which gate my plane is waiting at <===================
+//Seat
+let seat1 = new seat("E1");
+let seat2 = new seat("E2");
+let seat3 = new seat("E3");
+
+// Gate 
+let gate1 = new gate("A1");
+let gate2 = new gate("A2");
+let gate3 = new gate("A3");
+
+let boarding1 = new boardingPass();
+let boarding2 = new boardingPass();
+
+flight1.addGate([gate1, gate2, gate3])
+boarding1.setFlight(flight1)
+boarding1.setGate(gate1);
+
+passenger1.addBoarding(boarding1);
+let gatePassenger = `The gate number ${passenger1.getGateForPassenger()} that my plane is waiting at`;
+// =============> STORY 7: Manager want to know which has completed  <===================
+
+boarding1.scanBoardingPass();
+boarding2.isBoardingCompleted() ;

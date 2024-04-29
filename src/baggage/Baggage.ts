@@ -1,7 +1,5 @@
 import { passenger } from "../persons/Passenger";
 
-
-
 export class bagGage{
     private passenger:passenger;
 

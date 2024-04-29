@@ -1,12 +1,8 @@
 import { booking } from "../booking/Booking";
-import { ticket } from "../booking/Ticket";
+import { ReturnTicket } from "../booking/ReturnTicket";
 import { employee } from "../persons/Employee";
-import { passenger } from "../persons/Passenger";
 
-export enum ReturnTicket {
-    return = "Refunded",
-    cancel = "Canceled"
-}
+
 export class airline {
     private employees: employee[] = [];
     private bookings: booking[] = []
@@ -64,3 +60,5 @@ export class airline {
         return totalSalary;
     }
 }
+
+export { ReturnTicket };
