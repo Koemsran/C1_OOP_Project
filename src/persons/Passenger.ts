@@ -9,44 +9,44 @@ import { boardingPass } from "../booking/Boarding";
 import { gate } from "../aeroplane/Gate";
 
 
-export class passenger extends person{
+export class passenger extends person {
 
     private bags: bagGage[] = [];
     private booking: booking;
     private bookingFlights: bookingFlight[] = [];
-    private boardingPass: boardingPass[] = [];;
+    private boardingPass: boardingPass[] = [];
     constructor(name: string, gender: Gender, age: number, private chooseMeal?: typeMeal, private frequentFlyerNumber?: string,) {
         super(name, gender, age);
         this.chooseMeal = chooseMeal;
         this.frequentFlyerNumber = frequentFlyerNumber;
     }
-    setBooking(booking: booking){
+    setBooking(booking: booking) {
         this.booking = booking;
     }
-    addBag(bags:bagGage[]){
-        for (let bag of bags){
+    addBag(bags: bagGage[]) {
+        for (let bag of bags) {
             this.bags.push(bag);
         }
     }
-    addBookingFlight(bookings: bookingFlight[]){
-        for(let booking of bookings){
+    addBookingFlight(bookings: bookingFlight[]) {
+        for (let booking of bookings) {
             this.bookingFlights.push(booking);
         }
     }
-    getBag(): bagGage[]{
+    getBag(): bagGage[] {
         return this.bags;
     }
-    getBooking(){
+    getBooking() {
         return this.booking;
     }
-    addBoarding(boarding: boardingPass){
-        this.boardingPass.push(boarding) ;
+    addBoarding(boarding: boardingPass) {
+        this.boardingPass.push(boarding);
     }
     getGateForPassenger(): string | undefined {
         let Gate: string | undefined = undefined
-        for( let flight of this.boardingPass){
-            for( let gate of flight.getAFlight().getGates()){
-                if(flight.getGate() == gate){
+        for (let flight of this.boardingPass) {
+            for (let gate of flight.getAFlight().getGates()) {
+                if (flight.getGate() == gate) {
                     Gate = gate.getGateNumber()
                 }
 
@@ -54,4 +54,6 @@ export class passenger extends person{
         }
         return Gate;
     }
+    
+    
 }

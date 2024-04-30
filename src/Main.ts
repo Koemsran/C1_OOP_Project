@@ -17,32 +17,19 @@ import { gate } from "./aeroplane/Gate";
 import { seat } from "./seat/Seat";
 import { route } from "./aeroplane/Route";
 import { meal } from "./food/Meal";
-import { ticket } from "./booking/Ticket";
 import { boardingPass } from "./booking/Boarding";
 import { address } from "./address/Address";
+import { areoplane } from "./aeroplane/Aeroplane";
+import { airport } from "./aeroplane/Airport";
 
 // Airline
 let airLine = new airline('PP Airline', "A21");
+let plane = new areoplane("ABC123");
 
 // Passenger 
 let passenger1 = new passenger('Koemsran', Gender.FEMALE, 20, typeMeal.HALAL);
 let passenger2 = new passenger('Sreyka', Gender.FEMALE, 21, typeMeal.HALAL);
 let passenger3 = new passenger('Ryfin', Gender.FEMALE, 19, typeMeal.HALAL);
-
-//Booking
-let booking1 = new booking('C1', ReturnTicket.return);
-let booking2 = new booking('C2', ReturnTicket.cancel);
-let booking3 = new booking('C3', ReturnTicket.return);
-
-//Employees
-let emyployee1 = new employee(500, "Ra", 25, Gender.MALE);
-let emyployee2 = new employee(1000, "Reach", 30, Gender.FEMALE);
-let emyployee3 = new employee(1500, "Rith", 35, Gender.MALE);
-
-// Passenger booking
-booking1.addPassenger(passenger1);
-booking2.addPassenger(passenger2);
-booking3.addPassenger(passenger3);
 
 //Booking trip 
 let trip1 = new bookingTrip();
@@ -66,7 +53,6 @@ let co_pilot = new coPilot(100, 'Seyha', 20, Gender.MALE)
 //Date time
 let date1 = new dateTime('26/04/2024', '7:30 AM');
 let date2 = new dateTime('27/04/2024', '6:00 PM');
-
 
 // Chef
 let chef1 = new chef(200, 'Vorn', 19, Gender.FEMALE);
@@ -106,6 +92,16 @@ flight2.setDate(date2)
 flight3.setRoute(route1);
 flight3.setDate(date1)
 
+//Booking
+let booking1 = new booking('C1', ReturnTicket.return);
+let booking2 = new booking('C2', ReturnTicket.cancel);
+let booking3 = new booking('C3', ReturnTicket.return);
+
+// Passenger booking
+booking1.addPassenger(passenger1);
+booking2.addPassenger(passenger2);
+booking3.addPassenger(passenger3);
+
 // Add booking trip to booking 
 booking1.addBookingTrip([trip1]);
 booking1.addFlight(flight1);
@@ -135,12 +131,10 @@ trip1.addBookingFlight(bookingFlight1);
 
 let ticketRetuned = `There are ${airLine.getAllticketsReturn()} tickets that passengers have returned`;
 
-
 // =============> STORY 3: How many flights each pilot has to join <===================
 pilot1.addFlight([flight1,flight2, flight3]);
 
-let numberOfFlights =`There are ${pilot1.getFlightsForDate(date1)} flights that I has to join` ;
-
+let numberOfPilotJoinFlights =`There are ${pilot1.getFlightsForDate(date1)} flights that I has to join` ;
 
 // =============> STORY 4:  How many of each meal type I need to prepare <===================
 bookingFlight1.addMeal([meal1, meal2]);
@@ -150,25 +144,31 @@ chef1.addFlight([flight1]);
 
 let mealToPrepare = chef1.getMeals();
 
-
 // =============> STORY 5:  Get all salary from all employees <===================
-airLine.addEmployee([emyployee1, emyployee2, emyployee3]);
-let salaries = airLine.getAllSalaryEmployee();
 
+//Employees
+let emyployee1 = new employee(500, "Ra", 25, Gender.MALE);
+let emyployee2 = new employee(1000, "Reach", 30, Gender.FEMALE);
+let emyployee3 = new employee(1500, "Rith", 35, Gender.MALE);
+
+airLine.addEmployee([emyployee1, emyployee2, emyployee3]);
+let salaries = `${airLine.getAllSalaryEmployee()}$`;
 
 // =============> STORY 6: Passenger want to know which gate my plane is waiting at <===================
 //Seat
 let seat1 = new seat("E1");
-let seat2 = new seat("E2");
+let seat2 = new seat("E2",);
 let seat3 = new seat("E3");
+let seat4 = new seat("E4");
+let seat5 = new seat("E5");
 
 // Gate 
 let gate1 = new gate("A1");
 let gate2 = new gate("A2");
 let gate3 = new gate("A3");
 
-let boarding1 = new boardingPass();
-let boarding2 = new boardingPass();
+let boarding1 = new boardingPass(plane);
+let boarding2 = new boardingPass(plane);
 
 flight1.addGate([gate1, gate2, gate3])
 boarding1.setFlight(flight1)
@@ -176,7 +176,28 @@ boarding1.setGate(gate1);
 
 passenger1.addBoarding(boarding1);
 let gatePassenger = `The gate number ${passenger1.getGateForPassenger()} that my plane is waiting at`;
-// =============> STORY 7: Manager want to know which has completed  <===================
+
+// =============> STORY 7: Manager want to know how many passengers stay in the plane  <===================
+
+boarding1.addPassenger(passenger1)
+boarding2.addPassenger(passenger2)
 
 boarding1.scanBoardingPass();
-boarding2.isBoardingCompleted() ;
+boarding2.scanBoardingPass();
+
+// Check if boarding has scaned it mean passenger has boarded in the plane 
+let passengerBoard = plane.getPassengerBoarded();
+
+// =============> STORY 8: Manager want to know how many seats are available <===================
+
+plane.addSeat([seat1, seat2, seat3, seat4, seat5])
+bookingFlight1.addSeat([seat1, seat2, seat3])
+
+plane.setSeatStatusByBookingFlight(bookingFlight1.getSeat())
+let seatAlvailable = plane.getSeatAlvailable();
+
+
+
+
+
+
