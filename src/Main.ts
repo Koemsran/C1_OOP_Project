@@ -124,17 +124,20 @@ passenger2.setBooking(booking2);
 passenger3.setBooking(booking3);
 
 let passengerTrip = airLine.getTripDetails("C1");
+// console.log(passengerTrip)
 
 // =============> STORY 2: How many passengers have returned ticket <===================
 trip1.addPassenger([passenger1,passenger2, passenger3]);
 trip1.addBookingFlight(bookingFlight1);
 
 let ticketRetuned = `There are ${airLine.getAllticketsReturn()} tickets that passengers have returned`;
+// console.log(ticketRetuned)
 
 // =============> STORY 3: How many flights each pilot has to join <===================
 pilot1.addFlight([flight1,flight2, flight3]);
 
 let numberOfPilotJoinFlights =`There are ${pilot1.getFlightsForDate(date1)} flights that I has to join` ;
+// console.log(numberOfPilotJoinFlights)
 
 // =============> STORY 4:  How many of each meal type I need to prepare <===================
 bookingFlight1.addMeal([meal1, meal2]);
@@ -143,6 +146,7 @@ flight1.addMealFromBookingFlight();
 chef1.addFlight([flight1]);
 
 let mealToPrepare = chef1.getMeals();
+// console.log(mealToPrepare)
 
 // =============> STORY 5:  Get all salary from all employees <===================
 
@@ -153,6 +157,7 @@ let emyployee3 = new employee(1500, "Rith", 35, Gender.MALE);
 
 airLine.addEmployee([emyployee1, emyployee2, emyployee3]);
 let salaries = `${airLine.getAllSalaryEmployee()}$`;
+// console.log(salaries)
 
 // =============> STORY 6: Passenger want to know which gate my plane is waiting at <===================
 //Seat
@@ -176,6 +181,7 @@ boarding1.setGate(gate1);
 
 passenger1.addBoarding(boarding1);
 let gatePassenger = `The gate number ${passenger1.getGateForPassenger()} that my plane is waiting at`;
+// console.log(gatePassenger)
 
 // =============> STORY 7: Manager want to know how many passengers stay in the plane  <===================
 
@@ -186,7 +192,8 @@ boarding1.scanBoardingPass();
 boarding2.scanBoardingPass();
 
 // Check if boarding has scaned it mean passenger has boarded in the plane 
-let passengerBoard = plane.getPassengerBoarded();
+let passengerBoarded = plane.getPassengerBoarded();
+// console.log(passengerBoarded)
 
 // =============> STORY 8: Manager want to know how many seats are available <===================
 
@@ -195,8 +202,7 @@ bookingFlight1.addSeat([seat1, seat2, seat3])
 
 plane.setSeatStatusByBookingFlight(bookingFlight1.getSeat())
 let seatAlvailable = plane.getSeatAlvailable();
-
-
+// console.log(seatAlvailable)
 
 
 

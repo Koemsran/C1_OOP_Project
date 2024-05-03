@@ -4,7 +4,6 @@ import { bookingFlight } from "./BookingFlight";
 
 export class bookingTrip {
     private passengers: passenger[] = [];
-    private bags: bagGage[] = [];
     private bookFlight: bookingFlight[] = [];
     
     addPassenger(passengers: passenger[]){
